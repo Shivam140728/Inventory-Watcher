@@ -1,91 +1,99 @@
-📦 TopPick: Best Product Alert
-TopPick is a Google Apps Script-based automation tool that fetches product data from a public API, filters the best-performing products based on customizable business rules (discount and rating), and sends a daily email alert with the top products. This project is ideal for e-commerce teams, data analysts, or inventory managers who want to stay updated on product performance trends.
+📦 Project Name:
+Inventory Watcher
+Smart Product Alerting & Reporting System using Google Apps Script
 
-🚀 Features
-🔄 Fetches product data from the DummyJSON Products API
+📄 Description:
+Inventory Watcher automates your inventory analysis using Google Sheets + Apps Script. It fetches product data from an API, filters best-performing items, sends email alerts, generates downloadable reports, and builds a live dashboard with charts and KPIs — helping teams stay informed and act faster.
 
-📊 Filters best products based on:
+🚀 Key Features:
+✅ 1. 📩 Email Alert for Best Products
+Automatically emails the top 5 best products daily.
 
-Rating ≥ 4
+Product details include title, price, discount %, and rating.
 
-Discount ≤ 2%
+✅ 2. 📄 PDF/CSV Export of Best Products
+Exports selected top products into a CSV file.
 
-✅ Stores full product list in a Google Sheet (Sheet1)
+Files are stored in Google Drive for backup and sharing.
 
-🌟 Writes filtered products to another sheet (Best_Products) with formatting
+✅ 3. 📊 Inventory Dashboard
+Dynamic dashboard in Google Sheets (Dashboard tab) showing:
 
-💬 Sends automated email with the top products summary
+🔢 Total Products
 
-🖌️ Highlights best products in green
+💸 Average Price
 
-🕐 Supports daily automation using triggers
+🌟 Average Rating
 
-🧠 Logic Criteria
-To be marked as a “Top Pick”, a product must satisfy:
+❗ Low Stock Warnings
 
-Rating ≥ 4
+📈 Discount vs Rating Chart
 
-Discount ≤ 2%
+📊 Column Chart for Product Ratings
 
-These rules can be adjusted in the script to match your business needs.
+✅ 4. Low Stock Highlighting
+Highlights products with stock below threshold (e.g., < 10) in red/pink for quick action.
 
-📁 Sheet Structure
-Sheet1 – All Products
-Title	Price	Discount	Rating	Stock
-All fetched product data from API				
-
-Best_Products – Filtered Products
-Title	Price	Discount	Rating	Stock
-Only the best products (green highlighted)				
-
-📧 Email Output Example
-yaml
-Copy
-Edit
-Here are today's best products:
-
-📦 iPhone 9 | Price: ₹549 | Discount: 1.2% | Rating: 4.69 | Stock: 34  
-📦 MacBook Pro | Price: ₹1749 | Discount: 2% | Rating: 4.5 | Stock: 12  
-...
-🔧 Setup Instructions
-Open Google Sheets.
-
-Go to Extensions > Apps Script.
-
-Paste the full code into the script editor.
-
-Create two sheets: Sheet1 and Best_Products.
-
-Replace the email address in the code (MailApp.sendEmail) with your own.
-
-(Optional) Set a time-driven trigger:
-
-Go to ⏰ Triggers in Apps Script
-
-Select function APIData
-
-Choose "Time-driven" > "Day timer" > 9:00 AM (or any time)
-
-💡 Customization Ideas
-Add cost price and calculate profit margin
-
-Highlight low-stock products in red
-
-Send product data as PDF or CSV attachment
-
-Add charts and visual KPIs in a third sheet
-
-📚 Tech Used
-Google Apps Script (JavaScript)
+🔧 Technologies Used:
+Google Apps Script
 
 Google Sheets
 
-MailApp Service
+DummyJSON API (https://dummyjson.com/products)
 
-Public API: DummyJSON Products
+MailApp, DriveApp, ChartBuilder
 
-🙋‍♂️ Author
-Shivam Kumar
-Data Analyst | Google Apps Script Enthusiast
-📧 shivam.kumar140728@gmail.com
+🛠 How It Works:
+Fetch API Data → Loads product data into Sheet1
 
+Filter Best Products → Based on rating >= 4 & discount <= 2%
+
+Update Best_Products Sheet → Highlights & stores best items
+
+Email Alert → Sends summary of top 5 items
+
+CSV Export → Saves best products to Drive
+
+Dashboard → Visualizes KPIs and discount-rating trends
+
+📧 Sample Email Output:
+yaml
+Copy
+Edit
+🛒 Today's Best Products
+
+Calvin Klein CK One | Price: $49.99 | Discount: 1.89% | Rating: 4.37
+Cucumber             | Price: $1.49  | Discount: 0.16% | Rating: 4.07
+...
+📈 Sample KPIs in Dashboard:
+Metric	Value
+Total Products	30
+Avg. Price	₹499.20
+Avg. Rating	4.25
+
+Includes:
+
+🔵 Scatter Plot: Discount vs Rating
+
+🟩 Column Chart: Product Ratings
+
+📥 Output Files:
+📧 Email To: shivam.kumar140728@gmail.com
+
+📄 CSV File: "Best Products List.csv" in Google Drive
+
+📊 Visuals: In Dashboard sheet
+
+🔄 Recommended Triggers:
+Daily at 9:00 AM → Run APIData()
+
+Weekly → Run CreateDashboard()
+
+📈 Possible Future Enhancements:
+🔔 WhatsApp Alerts via Twilio
+
+📅 Calendar Integration for stock restock reminders
+
+📤 PDF Export of visual dashboard
+
+🧮 Sales trend forecasting
